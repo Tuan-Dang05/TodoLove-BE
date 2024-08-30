@@ -1,0 +1,24 @@
+{
+    "categories": [
+        {
+            "name": "Ăn uống",
+            "tasks": [
+                { "task": "Ăn sáng", "complete": false },
+                { "task": "Uống cà phê", "complete": false }
+            ]
+        },
+        {
+            "name": "Đi chơi",
+            "tasks": [
+                { "task": "Đi công viên", "complete": false },
+                { "task": "Xem phim", "complete": false }
+            ]
+        },
+        {
+            "name": "Chụp ảnh",
+            "tasks": [
+                { "task": "Chụp ảnh hoàng hôn", "complete": false }
+            ]
+        }
+    ]
+}
