@@ -1,5 +1,6 @@
 const { ObjectId } = require('mongodb');
 const connectToDatabase = require('../database/database');
+const { io } = require('../server'); 
 
 
 // Lấy danh sách todo
@@ -83,12 +84,17 @@ const createTodo = async (todoData, categoryId) => {
             createdAt: new Date()
         };
         await collection.insertOne(todo);
+        
+        // Gửi thông báo đến tất cả các client
+        io.emit('newTodo', { message: 'Bạn có thông báo mới!', todo });
+        
         return todo;
     } catch (error) {
         console.error("Error creating todo:", error);
         throw error;
     }
 };
+
 
 // Xoá todo
 const deleteTodo = async (todoId) => {

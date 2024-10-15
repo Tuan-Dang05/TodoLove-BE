@@ -1,5 +1,4 @@
 const { MongoClient } = require('mongodb');
-const cron = require('node-cron');
 
 let client;
 let db;
@@ -27,17 +26,7 @@ async function connectToDatabase() {
     return db;
 }
 
-// Kiểm tra và duy trì kết nối mỗi 1 phút
-cron.schedule('* * * * *', async () => {
-    try {
-        const database = await connectToDatabase();
-        await database.command({ ping: 1 });
-        console.log("Database connection is alive");
-    } catch (error) {
-        console.error("Error in database connection check:", error);
-        // Đặt db về null để kích hoạt kết nối lại trong lần gọi tiếp theo
-        db = null;
-    }
-});
+
 
 module.exports = connectToDatabase;
+

@@ -72,7 +72,7 @@ const createTodoController = async (req, res) => {
         const todo = await createTodo(todoData, categoryId);
         res.status(201).json({ message: "Todo created successfully", todo });
     } catch (error) {
-        console.error("Error in createTodoController:", error);
+        // console.error("Error in createTodoController:", error);
         res.status(500).json({ message: "Internal server error" });
     }
 };
